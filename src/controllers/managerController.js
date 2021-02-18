@@ -31,6 +31,10 @@ const userPatch = async (req, res) => {
   }
 
   try {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ee868ce16c6955f965100e5896eea7b425bd4a66
     const bcryptResult = password && (await bcrypt.hash(password, 8))
 
     const userUpdates = {

@@ -4,6 +4,10 @@ const jwt = require('jsonwebtoken')
 const show = async (req, res) => {
   const token = req.headers.authorization.split(' ')[1]
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ee868ce16c6955f965100e5896eea7b425bd4a66
   try {
     const user = await jwt.verify(token, process.env.SECRET_KEY)
 
