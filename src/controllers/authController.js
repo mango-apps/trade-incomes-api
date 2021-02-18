@@ -118,7 +118,7 @@ const forgotPassword = async (req, res) => {
 }
 
 const resetPassword = async (req, res) => {
-  const { email, token } = req.body
+  const { email, token, password } = req.body
 
   try {
     if (!validator.isEmail(email)) {
@@ -143,7 +143,7 @@ const resetPassword = async (req, res) => {
     }
 
     try {
-      user.password = await bcrypt.hash(req.body.password, 8)
+      user.password = await bcrypt.hash(password, 8)
       await user.save()
     } catch (error) {
       return res.status(400).json({ error: 'register failed' })
