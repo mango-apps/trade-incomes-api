@@ -15,5 +15,6 @@ router.patch(
   authMiddleware.verifyUser,
   userController.editProfile
 )
+router.get('/funds', authMiddleware.verifyUser, userController.indexFunds)
 
 module.exports = router

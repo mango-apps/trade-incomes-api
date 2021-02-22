@@ -83,40 +83,8 @@ const userIndex = async (_req, res) => {
   return res.json({ users })
 }
 
-const incomesPut = async (req, res) => {
-  const { email, amountInvested, earnedValue } = req.body
-
-  if (!validator.isEmail(email)) {
-    return res.status(400).json({ error: 'Email is malformatted' })
-  }
-
-  const user = await User.findOne({ email })
-
-  if (!user) {
-    return res.status(404).json({ error: `User not found` })
-  }
-
-  try {
-    const incomesUpdated = {
-      incomes: {
-        amountInvested,
-        earnedValue
-      }
-    }
-
-    await User.findOneAndUpdate({ _id: user.id }, incomesUpdated, {
-      useFindAndModify: false
-    })
-
-    return res.json({ message: 'User incomes updated' })
-  } catch (error) {
-    return res.status(400).json({ error: 'Cannot input incomes' })
-  }
-}
-
 module.exports = {
   userPatch,
   userDelete,
-  userIndex,
-  incomesPut
+  userIndex
 }

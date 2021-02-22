@@ -23,12 +23,6 @@ router.get(
   UserActionsController.userIndex
 )
 
-router.put(
-  '/incomes',
-  authMiddleware.verifyAdmin,
-  UserActionsController.incomesPut
-)
-
 router.post(
   '/funds',
   authMiddleware.verifyAdmin,
