@@ -29,7 +29,7 @@ const userRegister = async (req, res) => {
       password: hashedPass
     })
 
-    user.password = undefined;
+    user.password = undefined
 
     return res.json({ user })
   } catch (error) {
