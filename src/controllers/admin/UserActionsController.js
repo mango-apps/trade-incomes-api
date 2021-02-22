@@ -1,17 +1,17 @@
 const { default: validator } = require('validator')
-const User = require('../models/user')
-
-const bcrypt = require('bcrypt')
+const User = require('../../models/user')
 
 const userPatch = async (req, res) => {
-  const { email, newEmail, name, password } = req.body
+  const { email, newEmail, name } = req.body
 
   if (!validator.isEmail(email)) {
-    return res.status(400).json({ error: 'Email is malformatted' })
+    return res.status(400).json({ error: 'Email address is malformatted' })
   }
 
   if (newEmail && !validator.isEmail(newEmail)) {
-    return res.status(400).json({ error: 'NewEmail is malformatted' })
+    return res
+      .status(400)
+      .json({ error: 'New email address is malformatted' })
   }
 
   const userFindedWithNewEmail = await User.findOne({
@@ -20,7 +20,7 @@ const userPatch = async (req, res) => {
 
   if (newEmail && userFindedWithNewEmail) {
     return res.status(404).json({
-      error: `new email is not valid because you already registered`
+      error: `new email is not valid because it's already registered`
     })
   }
 
@@ -31,12 +31,9 @@ const userPatch = async (req, res) => {
   }
 
   try {
-    const bcryptResult = password && (await bcrypt.hash(password, 8))
-
     const userUpdates = {
       email: newEmail || email,
-      name: name || user.name,
-      password: bcryptResult || user.password
+      name: name || user.name
     }
 
     const userPatch = await User.findOneAndUpdate(

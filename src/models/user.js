@@ -13,21 +13,21 @@ const UserSchema = new mongoose.Schema({
     lowercase: true
   },
 
+  phone: {
+    type: String,
+    require: true
+  },
+
+  cpf: {
+    type: String,
+    require: true,
+    unique: true
+  },
+
   password: {
     type: String,
     required: true,
     select: false
-  },
-
-  incomes: {
-    amountInvested: {
-      type: Number,
-      default: 0
-    },
-    earnedValue: {
-      type: Number,
-      default: 0
-    }
   },
 
   admin: {

@@ -1,24 +1,28 @@
-const User = require('../models/user')
+const User = require('../../models/user')
 
 const crypto = require('crypto')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const validator = require('validator')
 
-const mailer = require('../modules/mail')
+const mailer = require('../../modules/mail')
 
 const userRegister = async (req, res) => {
-  const { name, email, password } = req.body
+  const { name, email, password, cpf, phone } = req.body
 
   try {
     if (!validator.isEmail(email)) {
       return res.status(400).json({ error: 'Email is malformatted' })
     }
 
-    const findedUser = await User.findOne({ email }).lean()
+    const findedEmail = await User.findOne({ email }).lean()
+    const findedCpf = await User.findOne({ cpf }).lean()
 
-    if (findedUser) {
-      return res.status(400).json({ error: 'User already registered' })
+    if (findedEmail) {
+      return res.status(400).json({ error: 'Email already registered' })
+    }
+    if (findedCpf) {
+      return res.status(400).json({ error: 'CPF already registered' })
     }
 
     const hashedPass = await bcrypt.hash(password, 8)
@@ -26,12 +30,12 @@ const userRegister = async (req, res) => {
     const user = await User.create({
       name,
       email,
-      password: hashedPass
+      password: hashedPass,
+      cpf,
+      phone
     })
 
-    user.password = undefined
-
-    return res.json({ user })
+    return res.json({ name: user.name, email: user.email })
   } catch (error) {
     return res.status(400).json({ error: 'register failed' })
   }
