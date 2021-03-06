@@ -1,4 +1,4 @@
-const validator = require('validator')
+const { default: validator } = require('validator')
 const User = require('../../models/user')
 
 const userPatch = async (req, res) => {
@@ -83,8 +83,21 @@ const userIndex = async (_req, res) => {
   return res.json({ users })
 }
 
+const userShow = async (req, res) => {
+  const { id } = req.params
+
+  const user = await User.findOne({ _id: id })
+
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' })
+  }
+
+  return res.json({ user })
+}
+
 module.exports = {
   userPatch,
   userDelete,
-  userIndex
+  userIndex,
+  userShow
 }

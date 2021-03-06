@@ -54,7 +54,20 @@ const patchFund = async (req, res) => {
   }
 }
 
+const showFundsFromUser = async (req, res) => {
+  const { id } = req.params
+
+  const funds = await Fund.find({ userOwner: id })
+
+  if (!funds.length) {
+    return res.status(404).json({ error: 'Funds not founded' })
+  }
+
+  return res.json({ funds })
+}
+
 module.exports = {
   insertFund,
-  patchFund
+  patchFund,
+  showFundsFromUser
 }

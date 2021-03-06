@@ -5,10 +5,16 @@ const WithdrawActionsController = require('../controllers/user/WhitdrawalActions
 
 const router = Router()
 
-router.get(
+router.post(
   '/withdraw',
   authMiddleware.verifyUser,
   WithdrawActionsController.withdrawFund
+)
+
+router.get(
+  '/withdraw',
+  authMiddleware.verifyUser,
+  WithdrawActionsController.withdrawFundIndex
 )
 
 router.get('/profile', authMiddleware.verifyUser, userController.show)
