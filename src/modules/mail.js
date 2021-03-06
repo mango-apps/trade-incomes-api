@@ -16,7 +16,7 @@ transport.use(
   'compile',
   hbs({
     viewEngine: {
-      extName: '.html', 
+      extName: '.html',
       partialsDir: path.resolve('./src/modules/templates/mail'),
       defaultLayout: false
     },

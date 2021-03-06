@@ -1,1 +1,214 @@
-{"_type":"export","__export_format":4,"__export_date":"2021-02-16T20:46:00.780Z","__export_source":"insomnia.desktop.app:v2020.5.2","resources":[{"_id":"req_dd5e98d88d5741d7b3806364db306dbe","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613508237865,"created":1612542563181,"url":"{{ _.url }}/api/auth/register","name":"reg","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"leandro\",\n\t\"email\": \"leandrovianacodes@gmail.com\",\n\t\"password\": \"thrasher123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"},{"name":"Authorization","value":"Bearer {{ _.token }}","description":"","id":"pair_8837e1128eff47d99ee1146d36fe913a","disabled":false}],"authentication":{},"metaSortKey":-1612542563182,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"wrk_a32532dd14294397ab2fc89aec459ae8","parentId":null,"modified":1612542407789,"created":1612542407789,"name":"Insomnia","description":"","scope":null,"_type":"workspace"},{"_id":"req_92ebef2dda8d4534937f0f54d60f7bba","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613507760476,"created":1612720931490,"url":"{{ _.url }}/api/auth/login","name":"log","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"password\": \"thrasher123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"}],"authentication":{},"metaSortKey":-1612542563132,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_9d554f598e774da1a3d2b06016b86751","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613181248736,"created":1612987653747,"url":"{{ _.url }}/api/auth/forgot-password","name":"forgot pass","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leaxviana140@gmail.com\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"}],"authentication":{},"metaSortKey":-1612542563082,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_9ce4a87376ed485bb0ccced9c2e36304","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613507793341,"created":1613063804143,"url":"{{ _.url }}/api/auth/reset-password","name":"reset pass","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leandro\",\n\t\"token\": \"52c416470a7a9f1f14622a82f4901a85cb011865\",\n\t\"password\": \"thrasher123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"}],"authentication":{},"metaSortKey":-1612542563032,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1612542407852,"created":1612542407852,"name":"Base Environment","data":{},"dataPropertyOrder":null,"color":null,"isPrivate":false,"metaSortKey":1612542407852,"_type":"environment"},{"_id":"jar_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1612542407854,"created":1612542407854,"name":"Default Jar","cookies":[],"_type":"cookie_jar"},{"_id":"spc_73051a92e3fa4be9803b147a78f9e24c","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1612542407790,"created":1612542407790,"fileName":"Insomnia","contents":"","contentType":"yaml","_type":"api_spec"},{"_id":"env_7e844d7c619742d5937e7a920090937f","parentId":"env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","modified":1613508220071,"created":1613088322054,"name":"dev","data":{"url":"http://localhost:3000","token":"{% response 'body', 'req_92ebef2dda8d4534937f0f54d60f7bba', 'b64::JC50b2tlbg==::46b', 'always', 60 %}"},"dataPropertyOrder":{"&":["url","token"]},"color":null,"isPrivate":false,"metaSortKey":1613088322054,"_type":"environment"},{"_id":"env_27e4f0120e3c4c7c9dc0b0576fa3d859","parentId":"env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","modified":1613180402085,"created":1613088338374,"name":"prod","data":{"url":"https://tradeincomesapi-2wzlfev5ua-rj.a.run.app"},"dataPropertyOrder":{"&":["url"]},"color":null,"isPrivate":false,"metaSortKey":1613088338374,"_type":"environment"}]}
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-02-16T20:46:00.780Z",
+  "__export_source": "insomnia.desktop.app:v2020.5.2",
+  "resources": [
+    {
+      "_id": "req_dd5e98d88d5741d7b3806364db306dbe",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613508237865,
+      "created": 1612542563181,
+      "url": "{{ _.url }}/api/auth/register",
+      "name": "reg",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"leandro\",\n\t\"email\": \"leandrovianacodes@gmail.com\",\n\t\"password\": \"thrasher123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}",
+          "description": "",
+          "id": "pair_8837e1128eff47d99ee1146d36fe913a",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563182,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "parentId": null,
+      "modified": 1612542407789,
+      "created": 1612542407789,
+      "name": "Insomnia",
+      "description": "",
+      "scope": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_92ebef2dda8d4534937f0f54d60f7bba",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613507760476,
+      "created": 1612720931490,
+      "url": "{{ _.url }}/api/auth/login",
+      "name": "log",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"password\": \"thrasher123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563132,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9d554f598e774da1a3d2b06016b86751",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613181248736,
+      "created": 1612987653747,
+      "url": "{{ _.url }}/api/auth/forgot-password",
+      "name": "forgot pass",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leaxviana140@gmail.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563082,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9ce4a87376ed485bb0ccced9c2e36304",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613507793341,
+      "created": 1613063804143,
+      "url": "{{ _.url }}/api/auth/reset-password",
+      "name": "reset pass",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leandro\",\n\t\"token\": \"52c416470a7a9f1f14622a82f4901a85cb011865\",\n\t\"password\": \"thrasher123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563032,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1612542407852,
+      "created": 1612542407852,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1612542407852,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1612542407854,
+      "created": 1612542407854,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_73051a92e3fa4be9803b147a78f9e24c",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1612542407790,
+      "created": 1612542407790,
+      "fileName": "Insomnia",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_7e844d7c619742d5937e7a920090937f",
+      "parentId": "env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "modified": 1613508220071,
+      "created": 1613088322054,
+      "name": "dev",
+      "data": {
+        "url": "http://localhost:3000",
+        "token": "{% response 'body', 'req_92ebef2dda8d4534937f0f54d60f7bba', 'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      },
+      "dataPropertyOrder": { "&": ["url", "token"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1613088322054,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_27e4f0120e3c4c7c9dc0b0576fa3d859",
+      "parentId": "env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "modified": 1613180402085,
+      "created": 1613088338374,
+      "name": "prod",
+      "data": { "url": "https://tradeincomesapi-2wzlfev5ua-rj.a.run.app" },
+      "dataPropertyOrder": { "&": ["url"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1613088338374,
+      "_type": "environment"
+    }
+  ]
+}

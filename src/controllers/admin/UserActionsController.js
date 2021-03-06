@@ -1,4 +1,4 @@
-const { default: validator } = require('validator')
+const validator = require('validator')
 const User = require('../../models/user')
 
 const userPatch = async (req, res) => {
