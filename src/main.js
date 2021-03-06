@@ -21,7 +21,9 @@ app.use('/user', userRoutes)
 
 api.use('/api', app)
 
-const server = api.listen(3000, () => {
+const port = process.env.PORT || 8080
+
+const server = api.listen(port, () => {
   const { address, port } = server.address()
 
   console.log(`Server listening at http://${address}:${port}`)
