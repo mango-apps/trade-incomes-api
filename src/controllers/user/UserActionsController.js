@@ -31,6 +31,8 @@ const indexFunds = async (req, res) => {
     const user = await User.findOne({ email: session.email })
 
     const funds = await Fund.find({ userOwner: user._id })
+      .where('status')
+      .lte(1)
 
     if (funds.length) {
       return res.json({ funds })

@@ -3,7 +3,14 @@ const { Router } = require('express')
 const authMiddleware = require('../middlewares/authMiddleware')
 const UserActionsController = require('../controllers/admin/UserActionsController')
 const FundsActionsController = require('../controllers/admin/FundsActionsController')
+const WithdrawalActionsController = require('../controllers/admin/WhitdrawalActionsController')
 const router = Router()
+
+router.get(
+  '/withdrawals',
+  authMiddleware.verifyAdmin,
+  WithdrawalActionsController.withdrawsIndex
+)
 
 router.delete(
   '/user',

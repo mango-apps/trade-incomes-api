@@ -1,1 +1,447 @@
-{"_type":"export","__export_format":4,"__export_date":"2021-02-22T00:34:29.282Z","__export_source":"insomnia.desktop.app:v2020.5.2","resources":[{"_id":"req_59a783b6e1de4d43870814602d17a433","parentId":"fld_1fbd62e88fed41448d1b6d29aeb92878","modified":1613936264046,"created":1613932314949,"url":"{{ _.url }}/api/manager/user","name":"User Edit","description":"","method":"PATCH","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leandrovianamartins@hotmail.com\",\n\t\"password\": \"321\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1613932314949,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_1fbd62e88fed41448d1b6d29aeb92878","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613932301109,"created":1613932301109,"name":"Admin","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1613932301109,"_type":"request_group"},{"_id":"wrk_a32532dd14294397ab2fc89aec459ae8","parentId":null,"modified":1613867585980,"created":1612542407789,"name":"Trade Incomes","description":"","scope":null,"_type":"workspace"},{"_id":"req_61edf66aa0624db88f163c90100f6407","parentId":"fld_1fbd62e88fed41448d1b6d29aeb92878","modified":1613953731275,"created":1613938880972,"url":"{{ _.url }}/api/manager/funds","name":"Insert Funds","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"invested\": 1000,\n\t\"gained\": 4000\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1613584860501.5,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_226a144556e84d058dd4e0594b714594","parentId":"fld_1fbd62e88fed41448d1b6d29aeb92878","modified":1613942511719,"created":1613940861581,"url":"{{ _.url }}/api/manager/funds","name":"Update Funds","description":"","method":"PATCH","body":{"mimeType":"application/json","text":"{\n\t\"id\": \"6032c12a5a05f3933e2cc188\",\n\t\"invested\": 10,\n\t\"gained\": 20\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1613411133277.75,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_dd5e98d88d5741d7b3806364db306dbe","parentId":"fld_a7bedbb2842f4234b783b1f159a2e9c7","modified":1613932285198,"created":1612542563181,"url":"{{ _.url }}/api/auth/register","name":"reg","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"leandro\",\n\t\"email\": \"leandro@gmail.com\",\n\t\"password\": \"thrasher123\",\n\t\"cpf\": \"123.394.701-39\",\n\t\"phone\": \"(67) 9983944565\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"},{"name":"Authorization","value":"Bearer {{ _.token }}","description":"","id":"pair_8837e1128eff47d99ee1146d36fe913a","disabled":false}],"authentication":{},"metaSortKey":-1612542563182,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_a7bedbb2842f4234b783b1f159a2e9c7","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613932282086,"created":1613932282086,"name":"Auth","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1613932282086,"_type":"request_group"},{"_id":"req_92ebef2dda8d4534937f0f54d60f7bba","parentId":"fld_a7bedbb2842f4234b783b1f159a2e9c7","modified":1613953721017,"created":1612720931490,"url":"{{ _.url }}/api/auth/login","name":"log","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"password\": \"thrasher123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"}],"authentication":{},"metaSortKey":-1612542563132,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_9d554f598e774da1a3d2b06016b86751","parentId":"fld_a7bedbb2842f4234b783b1f159a2e9c7","modified":1613932293046,"created":1612987653747,"url":"{{ _.url }}/api/auth/forgot-password","name":"forgot pass","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leaxviana140@gmail.com\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"}],"authentication":{},"metaSortKey":-1612542563082,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_9ce4a87376ed485bb0ccced9c2e36304","parentId":"fld_a7bedbb2842f4234b783b1f159a2e9c7","modified":1613932294464,"created":1613063804143,"url":"{{ _.url }}/api/auth/reset-password","name":"reset pass","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leandro\",\n\t\"token\": \"52c416470a7a9f1f14622a82f4901a85cb011865\",\n\t\"password\": \"thrasher123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_2e70c4d956b34b23a9a349fc3feb5893"}],"authentication":{},"metaSortKey":-1612542563032,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_2738cf6c70eb40dabe5d956387fe1ebf","parentId":"fld_acafad16768c4b419ccba5bccbf0c039","modified":1613943048086,"created":1613930390084,"url":"{{ _.url }}/api/user/profile","name":"Show User","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1613237406054,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_acafad16768c4b419ccba5bccbf0c039","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1613932248926,"created":1613932248926,"name":"User","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1613932248926,"_type":"request_group"},{"_id":"req_e799eae39e3740bcb5f78d4fd70289ed","parentId":"fld_acafad16768c4b419ccba5bccbf0c039","modified":1613952902965,"created":1613952892252,"url":"{{ _.url }}/api/user/funds","name":"Index Funds","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1613063695336,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_1298be9cbbcb4081be037392403fcf41","parentId":"fld_acafad16768c4b419ccba5bccbf0c039","modified":1613946340733,"created":1613946232504,"url":"{{ _.url }}/api/user/change-password","name":"Change Password","description":"","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"oldPassword\": \"123\",\n\t\"newPassword\": \"thrasher123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1612889984618,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_6bcc703ea1ab40b690c37b78e7a4f42d","parentId":"fld_acafad16768c4b419ccba5bccbf0c039","modified":1613948251640,"created":1613948095173,"url":"{{ _.url }}/api/user/profile","name":"Edit Profile","description":"","method":"PATCH","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"leandrovianamartins@hotmail.com\",\n\t\"cpf\": \"123\",\n\t\"phone\": \"123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"},{"name":"Authorization","value":"Bearer {{ _.token }}"}],"authentication":{},"metaSortKey":-1612716273900,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1612542407852,"created":1612542407852,"name":"Base Environment","data":{},"dataPropertyOrder":null,"color":null,"isPrivate":false,"metaSortKey":1612542407852,"_type":"environment"},{"_id":"jar_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1612542407854,"created":1612542407854,"name":"Default Jar","cookies":[],"_type":"cookie_jar"},{"_id":"spc_73051a92e3fa4be9803b147a78f9e24c","parentId":"wrk_a32532dd14294397ab2fc89aec459ae8","modified":1612542407790,"created":1612542407790,"fileName":"Insomnia","contents":"","contentType":"yaml","_type":"api_spec"},{"_id":"env_7e844d7c619742d5937e7a920090937f","parentId":"env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","modified":1613949104247,"created":1613088322054,"name":"dev","data":{"url":"http://localhost:3000","token":"{% response 'body', 'req_92ebef2dda8d4534937f0f54d60f7bba', 'b64::JC50b2tlbg==::46b', 'always', 60 %}"},"dataPropertyOrder":{"&":["url","token"]},"color":"#494dc5","isPrivate":false,"metaSortKey":0,"_type":"environment"},{"_id":"env_27e4f0120e3c4c7c9dc0b0576fa3d859","parentId":"env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7","modified":1613949108873,"created":1613088338374,"name":"prod","data":{"url":"https://tradeincomesapi-2wzlfev5ua-rj.a.run.app"},"dataPropertyOrder":{"&":["url"]},"color":"#49c551","isPrivate":false,"metaSortKey":1,"_type":"environment"}]}
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-02-22T00:34:29.282Z",
+  "__export_source": "insomnia.desktop.app:v2020.5.2",
+  "resources": [
+    {
+      "_id": "req_59a783b6e1de4d43870814602d17a433",
+      "parentId": "fld_1fbd62e88fed41448d1b6d29aeb92878",
+      "modified": 1613936264046,
+      "created": 1613932314949,
+      "url": "{{ _.url }}/api/manager/user",
+      "name": "User Edit",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leandrovianamartins@hotmail.com\",\n\t\"password\": \"321\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1613932314949,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_1fbd62e88fed41448d1b6d29aeb92878",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613932301109,
+      "created": 1613932301109,
+      "name": "Admin",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1613932301109,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "parentId": null,
+      "modified": 1613867585980,
+      "created": 1612542407789,
+      "name": "Trade Incomes",
+      "description": "",
+      "scope": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_61edf66aa0624db88f163c90100f6407",
+      "parentId": "fld_1fbd62e88fed41448d1b6d29aeb92878",
+      "modified": 1613953731275,
+      "created": 1613938880972,
+      "url": "{{ _.url }}/api/manager/funds",
+      "name": "Insert Funds",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"invested\": 1000,\n\t\"gained\": 4000\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1613584860501.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_226a144556e84d058dd4e0594b714594",
+      "parentId": "fld_1fbd62e88fed41448d1b6d29aeb92878",
+      "modified": 1613942511719,
+      "created": 1613940861581,
+      "url": "{{ _.url }}/api/manager/funds",
+      "name": "Update Funds",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"id\": \"6032c12a5a05f3933e2cc188\",\n\t\"invested\": 10,\n\t\"gained\": 20\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1613411133277.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_dd5e98d88d5741d7b3806364db306dbe",
+      "parentId": "fld_a7bedbb2842f4234b783b1f159a2e9c7",
+      "modified": 1613932285198,
+      "created": 1612542563181,
+      "url": "{{ _.url }}/api/auth/register",
+      "name": "reg",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"leandro\",\n\t\"email\": \"leandro@gmail.com\",\n\t\"password\": \"thrasher123\",\n\t\"cpf\": \"123.394.701-39\",\n\t\"phone\": \"(67) 9983944565\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}",
+          "description": "",
+          "id": "pair_8837e1128eff47d99ee1146d36fe913a",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563182,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_a7bedbb2842f4234b783b1f159a2e9c7",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613932282086,
+      "created": 1613932282086,
+      "name": "Auth",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1613932282086,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_92ebef2dda8d4534937f0f54d60f7bba",
+      "parentId": "fld_a7bedbb2842f4234b783b1f159a2e9c7",
+      "modified": 1613953721017,
+      "created": 1612720931490,
+      "url": "{{ _.url }}/api/auth/login",
+      "name": "log",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"password\": \"thrasher123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563132,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9d554f598e774da1a3d2b06016b86751",
+      "parentId": "fld_a7bedbb2842f4234b783b1f159a2e9c7",
+      "modified": 1613932293046,
+      "created": 1612987653747,
+      "url": "{{ _.url }}/api/auth/forgot-password",
+      "name": "forgot pass",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leaxviana140@gmail.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563082,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9ce4a87376ed485bb0ccced9c2e36304",
+      "parentId": "fld_a7bedbb2842f4234b783b1f159a2e9c7",
+      "modified": 1613932294464,
+      "created": 1613063804143,
+      "url": "{{ _.url }}/api/auth/reset-password",
+      "name": "reset pass",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leandro\",\n\t\"token\": \"52c416470a7a9f1f14622a82f4901a85cb011865\",\n\t\"password\": \"thrasher123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2e70c4d956b34b23a9a349fc3feb5893"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612542563032,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2738cf6c70eb40dabe5d956387fe1ebf",
+      "parentId": "fld_acafad16768c4b419ccba5bccbf0c039",
+      "modified": 1613943048086,
+      "created": 1613930390084,
+      "url": "{{ _.url }}/api/user/profile",
+      "name": "Show User",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1613237406054,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_acafad16768c4b419ccba5bccbf0c039",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1613932248926,
+      "created": 1613932248926,
+      "name": "User",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1613932248926,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_e799eae39e3740bcb5f78d4fd70289ed",
+      "parentId": "fld_acafad16768c4b419ccba5bccbf0c039",
+      "modified": 1613952902965,
+      "created": 1613952892252,
+      "url": "{{ _.url }}/api/user/funds",
+      "name": "Index Funds",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1613063695336,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1298be9cbbcb4081be037392403fcf41",
+      "parentId": "fld_acafad16768c4b419ccba5bccbf0c039",
+      "modified": 1613946340733,
+      "created": 1613946232504,
+      "url": "{{ _.url }}/api/user/change-password",
+      "name": "Change Password",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leaxviana140@gmail.com\",\n\t\"oldPassword\": \"123\",\n\t\"newPassword\": \"thrasher123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612889984618,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6bcc703ea1ab40b690c37b78e7a4f42d",
+      "parentId": "fld_acafad16768c4b419ccba5bccbf0c039",
+      "modified": 1613948251640,
+      "created": 1613948095173,
+      "url": "{{ _.url }}/api/user/profile",
+      "name": "Edit Profile",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"leandrovianamartins@hotmail.com\",\n\t\"cpf\": \"123\",\n\t\"phone\": \"123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "authentication": {},
+      "metaSortKey": -1612716273900,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1612542407852,
+      "created": 1612542407852,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1612542407852,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1612542407854,
+      "created": 1612542407854,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_73051a92e3fa4be9803b147a78f9e24c",
+      "parentId": "wrk_a32532dd14294397ab2fc89aec459ae8",
+      "modified": 1612542407790,
+      "created": 1612542407790,
+      "fileName": "Insomnia",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_7e844d7c619742d5937e7a920090937f",
+      "parentId": "env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "modified": 1613949104247,
+      "created": 1613088322054,
+      "name": "dev",
+      "data": {
+        "url": "http://localhost:3000",
+        "token": "{% response 'body', 'req_92ebef2dda8d4534937f0f54d60f7bba', 'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      },
+      "dataPropertyOrder": { "&": ["url", "token"] },
+      "color": "#494dc5",
+      "isPrivate": false,
+      "metaSortKey": 0,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_27e4f0120e3c4c7c9dc0b0576fa3d859",
+      "parentId": "env_a5f48b03169b8ffccdcf9491a55d9fea3f73d1a7",
+      "modified": 1613949108873,
+      "created": 1613088338374,
+      "name": "prod",
+      "data": { "url": "https://tradeincomesapi-2wzlfev5ua-rj.a.run.app" },
+      "dataPropertyOrder": { "&": ["url"] },
+      "color": "#49c551",
+      "isPrivate": false,
+      "metaSortKey": 1,
+      "_type": "environment"
+    }
+  ]
+}
