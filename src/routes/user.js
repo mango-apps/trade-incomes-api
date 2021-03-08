@@ -8,7 +8,13 @@ const router = Router()
 router.post(
   '/withdraw',
   authMiddleware.verifyUser,
-  WithdrawActionsController.withdrawFund
+  WithdrawActionsController.createWithdraw
+)
+
+router.get(
+  '/withdraw/:status?',
+  authMiddleware.verifyUser,
+  WithdrawActionsController.withdrawFundIndex
 )
 
 router.get(
