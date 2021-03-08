@@ -6,10 +6,16 @@ const WithdrawSchema = new mongoose.Schema({
     required: true
   },
 
+  userOwner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    require: true
+  },
+
   fundToWithdraw: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Funds',
-    require: true,
+    require: true
   },
 
   status: {

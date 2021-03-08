@@ -12,6 +12,12 @@ router.get(
   WithdrawalActionsController.withdrawsIndex
 )
 
+router.post(
+  '/withdrawals',
+  authMiddleware.verifyAdmin,
+  WithdrawalActionsController.withdrawsAccept
+)
+
 router.delete(
   '/user',
   authMiddleware.verifyAdmin,

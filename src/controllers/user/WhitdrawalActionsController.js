@@ -4,21 +4,26 @@ const Withdraw = require('../../models/withdraw')
 const ObjectId = require('mongoose').Types.ObjectId
 const jwt = require('jsonwebtoken')
 
-const withdrawFund = async (req, res) => {
-  const { id, value } = req.body
+const createWithdraw = async (req, res) => {
+  const token = req.headers.authorization.split(' ')[1]
+  const session = jwt.verify(token, process.env.SECRET_KEY)
+
+  const { idFund, value } = req.body
 
   try {
-    if (!ObjectId.isValid(id)) {
+    if (!ObjectId.isValid(idFund)) {
       return res.status(400).json({ error: 'ObjectID malformatted' })
     }
 
-    const fund = await Fund.findById(id)
+    const user = await User.findOne({ email: session.email })
+
+    const fund = await Fund.findById(idFund)
 
     if (!fund) {
       return res.status(404).json({ error: 'Fund not found' })
     }
 
-    if (fund.status) {
+    if (fund.status == 1) {
       return res.status(404).json({ error: 'Pending Withdrawal' })
     }
 
@@ -27,11 +32,6 @@ const withdrawFund = async (req, res) => {
         .status(404)
         .json({ error: 'withdraw more than available amount' })
     }
-
-    const withdraw = await Withdraw.create({
-      Withdraw: value,
-      fundToWithdraw: fund._id
-    })
 
     const resultFundUpdate = await Fund.updateOne(
       { _id: fund._id },
@@ -43,6 +43,12 @@ const withdrawFund = async (req, res) => {
     if (!resultFundUpdate)
       return res.status(400).json({ error: 'Cannot update status fund' })
 
+    const withdraw = await Withdraw.create({
+      Withdraw: value,
+      fundToWithdraw: fund._id,
+      userOwner: user._id
+    })
+
     return res.json({ withdraw })
   } catch (error) {
     return res.status(400).json({ error: 'Cannot withdraw funds' })
@@ -52,18 +58,17 @@ const withdrawFund = async (req, res) => {
 const withdrawFundIndex = async (req, res) => {
   const token = req.headers.authorization.split(' ')[1]
   const session = jwt.verify(token, process.env.SECRET_KEY)
+  const { status } = req.params
 
   try {
     const user = await User.findOne({ email: session.email })
 
-    const funds = await Fund.find(
-      { userOwner: user._id },
-      { fundToWithdraw: true }
-    )
-    const fundsId = funds.map(fund => fund._id)
-    const withdraws = await Withdraw.find({
-      fundToWithdraw: { $in: fundsId }
-    })
+    let withdraws = await Withdraw.find({ userOwner: user._id })
+
+    if (status)
+      withdraws = withdraws.filter(
+        withdraw => withdraw.status === parseInt(status)
+      )
 
     if (withdraws.length) {
       return res.json({ withdraws })
@@ -78,6 +83,6 @@ const withdrawFundIndex = async (req, res) => {
 }
 
 module.exports = {
-  withdrawFund,
+  createWithdraw,
   withdrawFundIndex
 }
