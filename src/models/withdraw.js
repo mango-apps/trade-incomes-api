@@ -23,6 +23,27 @@ const WithdrawSchema = new mongoose.Schema({
     default: 0
   },
 
+  method: {
+    type: String,
+    require: true
+  },
+
+  pixKey: {
+    type: String
+  },
+
+  bankAgency: {
+    type: String
+  },
+
+  bankAccount: {
+    type: String
+  },
+
+  bankCode: {
+    type: String
+  },
+
   createdAt: {
     type: Date,
     default: Date.now

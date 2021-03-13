@@ -8,7 +8,15 @@ const createWithdraw = async (req, res) => {
   const token = req.headers.authorization.split(' ')[1]
   const session = jwt.verify(token, process.env.SECRET_KEY)
 
-  const { idFund, value } = req.body
+  const {
+    idFund,
+    value,
+    method,
+    pixKey,
+    bankCode,
+    bankAccount,
+    bankAgency
+  } = req.body
 
   try {
     if (!ObjectId.isValid(idFund)) {
@@ -46,7 +54,12 @@ const createWithdraw = async (req, res) => {
     const withdraw = await Withdraw.create({
       Withdraw: value,
       fundToWithdraw: fund._id,
-      userOwner: user._id
+      userOwner: user._id,
+      method,
+      pixKey,
+      bankCode,
+      bankAccount,
+      bankAgency
     })
 
     return res.json({ withdraw })
