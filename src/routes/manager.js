@@ -7,7 +7,7 @@ const WithdrawalActionsController = require('../controllers/admin/WhitdrawalActi
 const router = Router()
 
 router.get(
-  '/withdrawals',
+  '/withdrawals/:status?',
   authMiddleware.verifyAdmin,
   WithdrawalActionsController.withdrawsIndex
 )

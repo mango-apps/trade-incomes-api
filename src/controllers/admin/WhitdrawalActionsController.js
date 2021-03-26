@@ -3,22 +3,32 @@ const Fund = require('../../models/fund')
 const User = require('../../models/user')
 
 const withdrawsIndex = async (req, res) => {
+  const { status } = req.params
   try {
-    const withdraws = await Withdraw.find().where('status').equals(0)
+    let withdraws = await Withdraw.find().where('status').equals(0)
     if (!withdraws.length) {
       return res.status(404).json({ error: 'Withdraws empty' })
     }
 
-    const withdrawsWithUserInfo = await Promise.all(
-      withdraws.map(async doc => {
-        const user = await User.findOne({ _id: doc.userOwner })
-        return {
-          ...doc._doc,
-          user: { name: user.name, phone: user.phone }
-        }
-      })
-    )
-    return res.json({ withdraws: withdrawsWithUserInfo })
+    if (status)
+      withdraws = withdraws.filter(
+        withdraw => withdraw.status === parseInt(status)
+      )
+
+    if (withdraws.length) {
+      const withdrawsWithUserInfo = await Promise.all(
+        withdraws.map(async doc => {
+          const user = await User.findOne({ _id: doc.userOwner })
+          return {
+            ...doc._doc,
+            user: { name: user.name, phone: user.phone }
+          }
+        })
+      )
+      return res.json({ withdraws: withdrawsWithUserInfo })
+    } else {
+      return res.status(404).json({ error: 'No Withdraws founded' })
+    }
   } catch (error) {
     return res.status(404).json({ error: 'Withdraws Index error' })
   }
