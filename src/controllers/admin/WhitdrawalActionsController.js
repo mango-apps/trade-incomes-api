@@ -4,16 +4,16 @@ const User = require('../../models/user')
 
 const withdrawsIndex = async (req, res) => {
   const { status } = req.params
+
   try {
-    let withdraws = await Withdraw.find().where('status').equals(0)
+    let withdraws = await Withdraw.find()
     if (!withdraws.length) {
       return res.status(404).json({ error: 'Withdraws empty' })
     }
 
-    if (status)
-      withdraws = withdraws.filter(
-        withdraw => withdraw.status === parseInt(status)
-      )
+    withdraws = withdraws.filter(
+      withdraw => withdraw.status === parseInt(status)
+    )
 
     if (withdraws.length) {
       const withdrawsWithUserInfo = await Promise.all(
@@ -21,13 +21,13 @@ const withdrawsIndex = async (req, res) => {
           const user = await User.findOne({ _id: doc.userOwner })
           return {
             ...doc._doc,
-            user: { name: user.name, phone: user.phone }
+            user: { name: user.name, phone: user.phone, cpf: user.cpf }
           }
         })
       )
       return res.json({ withdraws: withdrawsWithUserInfo })
     } else {
-      return res.status(404).json({ error: 'No Withdraws founded' })
+      return res.json([])
     }
   } catch (error) {
     return res.status(404).json({ error: 'Withdraws Index error' })
