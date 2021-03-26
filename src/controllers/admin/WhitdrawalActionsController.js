@@ -1,5 +1,6 @@
 const Withdraw = require('../../models/withdraw')
 const Fund = require('../../models/fund')
+const User = require('../../models/user')
 
 const withdrawsIndex = async (req, res) => {
   try {
@@ -8,7 +9,16 @@ const withdrawsIndex = async (req, res) => {
       return res.status(404).json({ error: 'Withdraws empty' })
     }
 
-    return res.json({ withdraws })
+    const withdrawsWithUserInfo = await Promise.all(
+      withdraws.map(async doc => {
+        const user = await User.findOne({ _id: doc.userOwner })
+        return {
+          ...doc._doc,
+          user: { name: user.name, phone: user.phone }
+        }
+      })
+    )
+    return res.json({ withdraws: withdrawsWithUserInfo })
   } catch (error) {
     return res.status(404).json({ error: 'Withdraws Index error' })
   }
