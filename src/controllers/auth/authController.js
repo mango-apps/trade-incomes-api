@@ -103,15 +103,15 @@ const forgotPassword = async (req, res) => {
 
     const mailOptions = {
       to: email,
-      // EMAIL DO GABRIEL AQUI
-      from: 'leandrovianacodes@gmail.com',
-      // TODO: FAZER O TEMPLATE
+      from: 'fundodeinvestimentosbw@gmail.com',
       template: 'forgot',
+      subject: 'Token de Recuperação de Senha',
       context: { token }
     }
 
     mailer.sendMail(mailOptions, (err, info) => {
       if (err) {
+        console.log(err)
         return res
           .status(400)
           .json({ error: `Cannot send forgot passoword to user's email` })
