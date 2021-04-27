@@ -1,5 +1,6 @@
 const { default: validator } = require('validator')
 const User = require('../../models/user')
+const Fund = require('../../models/fund')
 
 const userPatch = async (req, res) => {
   const { email, newEmail, name } = req.body
@@ -80,7 +81,18 @@ const userIndex = async (_req, res) => {
     return res.status(404).json({ message: 'Users not found' })
   }
 
-  return res.json({ users })
+  const userWithFunds = await Promise.all(
+    users.map(async doc => {
+      const fund = await Fund.findOne({ userOwner: doc._id })
+      console.log(fund)
+      return {
+        ...doc._doc,
+        fund
+      }
+    })
+  )
+
+  return res.json({ userWithFunds })
 }
 
 const userShow = async (req, res) => {
