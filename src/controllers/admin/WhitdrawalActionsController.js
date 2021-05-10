@@ -16,16 +16,7 @@ const withdrawsIndex = async (req, res) => {
     )
 
     if (withdraws.length) {
-      const withdrawsWithUserInfo = await Promise.all(
-        withdraws.map(async doc => {
-          const user = await User.findOne({ _id: doc.userOwner })
-          return {
-            ...doc._doc,
-            user: { name: user.name, phone: user.phone, cpf: user.cpf }
-          }
-        })
-      )
-      return res.json({ withdraws: withdrawsWithUserInfo })
+      return res.json({ withdraws })
     } else {
       return res.json([])
     }

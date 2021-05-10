@@ -23,6 +23,16 @@ const WithdrawSchema = new mongoose.Schema({
     default: 0
   },
 
+  fullname: {
+    type: String,
+    require: true
+  },
+
+  cpf: {
+    type: String,
+    require: true
+  },
+
   method: {
     type: String,
     require: true
