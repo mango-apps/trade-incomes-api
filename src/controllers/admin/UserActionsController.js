@@ -84,6 +84,8 @@ const userIndex = async (_req, res) => {
   const userWithFunds = await Promise.all(
     users.map(async doc => {
       const fund = await Fund.findOne({ userOwner: doc._id })
+        .where('status')
+        .lte(1)
       console.log(fund)
       return {
         ...doc._doc,
