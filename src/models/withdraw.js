@@ -1,7 +1,7 @@
 const mongoose = require('../db/main')
 
 const WithdrawSchema = new mongoose.Schema({
-  Withdraw: {
+  amount: {
     type: Number,
     required: true
   },
