@@ -33,20 +33,36 @@ const withdrawsAccept = async (req, res) => {
     if (!withdrawDB) return res.status(404).json({ error: 'Not withdraw' })
 
     const fundDB = await Fund.findOne({ _id: withdrawDB.fundToWithdraw })
+
+    let finalGainedValue
+    let finalInvested
+
+    if (fundDB.gained < withdrawDB.amount) {
+      finalGainedValue = 0
+      finalInvested = fundDB.invested - withdrawDB.amount
+    } else if (fundDB.gained > withdrawDB.amount) {
+      finalGainedValue = fundDB.gained - withdrawDB.amount
+      finalInvested = fundDB.invested
+    } else {
+      finalGainedValue = 0
+      finalInvested = fundDB.invested
+    }
+
     const fundPropertiesUpdated =
-      withdrawDB.Withdraw == fundDB.gained
+      Number(withdrawDB.amount) === Number(fundDB.gained + fundDB.invested)
         ? { status: 2 }
         : {
             status: 0,
-            gained: fundDB.gained - withdrawDB.Withdraw
+            gained: finalGainedValue,
+            invested: finalInvested
           }
 
-    const fundUpdated = await Fund.updateOne(
+    const fundUpdated = await Fund.findOneAndUpdate(
       { _id: fundDB._id },
       fundPropertiesUpdated
     )
 
-    const withdrawUpdated = await Withdraw.updateOne(
+    const withdrawUpdated = await Withdraw.findOneAndUpdate(
       { _id: withdrawDB._id },
       { status: 1 }
     )
