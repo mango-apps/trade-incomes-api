@@ -12,7 +12,7 @@ const createWithdraw = async (req, res) => {
     idFund,
     fullname,
     cpf,
-    value,
+    amount,
     method,
     pixKey,
     bankCode,
@@ -37,7 +37,7 @@ const createWithdraw = async (req, res) => {
       return res.status(404).json({ error: 'Pending Withdrawal' })
     }
 
-    if (fund.gained + fund.invested < value) {
+    if (fund.gained + fund.invested < amount) {
       return res
         .status(404)
         .json({ error: 'withdraw more than available amount' })
@@ -54,7 +54,7 @@ const createWithdraw = async (req, res) => {
       return res.status(400).json({ error: 'Cannot update status fund' })
 
     const withdraw = await Withdraw.create({
-      Withdraw: value,
+      amount: Number(amount),
       fundToWithdraw: fund._id,
       userOwner: user._id,
       fullname,
